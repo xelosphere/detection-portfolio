@@ -1,0 +1,16 @@
+name: Validate detections
+
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Sigma CLI
+        run: pip install sigma-cli
+      - name: Validate every rule parses
+        run: python -c "import glob; from sigma.collection import SigmaCollection; [SigmaCollection.from_yaml(open(f, encoding='utf-8').read()) for f in glob.glob('rules/**/*.yml', recursive=True)]; print('All detection rules parsed cleanly')"

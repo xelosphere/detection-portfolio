@@ -1,3 +1,5 @@
+![Validate detections](https://github.com/xelosphere/detection-portfolio/actions/workflows/sigma-check.yml/badge.svg)
+
 # Detection Portfolio
 
 A growing library of detection content written as platform-agnostic [Sigma](https://sigmahq.io/) rules, each mapped to [MITRE ATT&CK](https://attack.mitre.org/). Every rule is documented with the technique it catches, the logic behind it, expected false positives, and tuning notes.

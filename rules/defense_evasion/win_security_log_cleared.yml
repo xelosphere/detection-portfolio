@@ -8,8 +8,8 @@ references:
 author: Nicolas Portilla
 date: 2026-06-20
 tags:
-    - attack.defense_evasion
-    - attack.t1070.001
+    - attack.defense_impairment
+    - attack.t1685.005
 logsource:
     product: windows
     service: security

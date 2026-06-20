@@ -1,0 +1,29 @@
+title: User Added to Local Administrators Group
+id: 869c372e-7456-42ea-882a-45f464c1eca8
+status: experimental
+description: >
+    Detects a member being added to the built-in local Administrators group
+    (well-known SID S-1-5-32-544) via Event ID 4732. Privilege escalation and
+    persistence frequently involve granting an attacker-controlled account local admin.
+references:
+    - https://attack.mitre.org/techniques/T1098/
+    - https://attack.mitre.org/techniques/T1078/003/
+    - https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4732
+author: Nicolas Portilla
+date: 2026-06-19
+tags:
+    - attack.persistence
+    - attack.t1098
+    - attack.privilege-escalation
+    - attack.t1078.003
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4732
+        TargetSid: 'S-1-5-32-544'
+    condition: selection
+falsepositives:
+    - Authorized onboarding or break-glass admin provisioning (correlate with change tickets and known admins)
+level: high

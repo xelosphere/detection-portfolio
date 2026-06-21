@@ -7,7 +7,7 @@
 
 ## The technique
 
-The threat actor is clearing logs to hide the activity of an intrustion. They are covering their tracks so none can see what they touched or how they got in to begin with.
+The adversary is clearing logs to hide the activity of an intrustion. They are covering their tracks so none can see what they touched or how they got in to begin with.
 
 ## Detection logic
 

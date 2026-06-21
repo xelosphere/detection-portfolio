@@ -7,19 +7,19 @@
 
 ## The technique
 
-
+Adversaries may delete or remove built-in data and turn off services designed to aid in the recovery of a corrupted system to prevent recovery. This may deny access to available backups and recovery options.
 
 ## Detection logic
 
-Walk through what the rule actually matches and why those fields/values. Explain any thresholds or correlation.
+This detection looks for anyone running vssadmin.exe, regardless of the full path, and looks specifically for a command contains both the words "delete" and "shadows."
 
 ## False positives
 
-What benign activity looks similar, and how an analyst should distinguish it during triage.
+An administrator, under a registered administrator account clearing the backups for routine maintenance. Check to see if there is a service ticket put in place for this activity or confirm with the administrator themselves whether this was something they did. Also check to see if this was done during a routine maintenance window.
 
 ## Tuning
 
-How you'd reduce noise in a real environment (baselining, allow-lists, additional context, parent-process filtering, etc.).
+This rule catches the most common path, but attackers may use other tools to delete shadow copies such as "wbadmin, bcedit, etc."
 
 ## Translations
 
